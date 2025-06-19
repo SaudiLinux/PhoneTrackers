@@ -21,12 +21,37 @@ Educational tool for searching publicly available information associated with ph
 
 ## المميزات - Features
 
+### المميزات الأساسية
 - ✅ التحقق من صحة رقم الهاتف
 - ✅ معلومات شركة الاتصالات
 - ✅ تحديد الدولة
-- ✅ واجهة سهلة الاستخدام
-- ✅ حفظ النتائج في ملف JSON
-- ✅ وضع تعليمي آمن
+- ✅ حفظ النتائج في JSON و CSV
+- ✅ سجلات شاملة
+- ✅ معالجة الأخطاء والتحقق
+- ✅ إعدادات قابلة للتخصيص
+- ✅ توافق متعدد المنصات
+
+### المميزات المتقدمة
+- ✅ المعالجة المجمعة (أرقام متعددة)
+- ✅ تحليل متعدد الخيوط
+- ✅ تتبع التقدم
+- ✅ تاريخ التحليل
+- ✅ تنسيق طرفية غني
+- ✅ تسجيل الثقة
+- ✅ كشف المنطقة الزمنية
+
+### خيارات الواجهة
+- ✅ واجهة سطر الأوامر (CLI)
+- ✅ واجهة رسومية (GUI)
+- ✅ واجهة الويب
+- ✅ نقاط REST API
+- ✅ معالجة ملفات مجمعة
+
+### تنسيقات التصدير
+- ✅ ملفات JSON
+- ✅ ملفات CSV
+- ✅ ملفات Excel (اختياري)
+- ✅ تقارير قابلة للتحميل
 
 ## التثبيت - Installation
 
@@ -38,16 +63,75 @@ pip install -r requirements.txt
 
 ### 2. تشغيل الأداة - Run the Tool
 
+#### للمستخدمين على ويندوز (موصى به)
+1. **انقر مرتين على `install.bat`** للتثبيت التلقائي
+2. **انقر مرتين على `run.bat`** لتشغيل منصة الإطلاق
+
+#### التثبيت اليدوي
 ```bash
+# واجهة سطر الأوامر الأساسية
 python phone_lookup.py
+
+# أداة التحليل المتقدم
+python advanced_lookup.py
+
+# الواجهة الرسومية
+python gui_version.py
+
+# واجهة الويب
+python web_interface.py
 ```
 
 ## طريقة الاستخدام - Usage
 
-1. شغل الأداة باستخدام الأمر أعلاه
-2. أدخل رقم الهاتف المراد البحث عنه
-3. انتظر النتائج
-4. اختر حفظ النتائج إذا أردت
+### 1. واجهة سطر الأوامر
+```bash
+# الأداة الأساسية
+python phone_lookup.py
+
+# الأداة المتقدمة مع المعالجة المجمعة
+python advanced_lookup.py
+
+# البحث المباشر
+python advanced_lookup.py +1234567890
+```
+
+### 2. الواجهة الرسومية
+```bash
+python gui_version.py
+```
+
+### 3. واجهة الويب
+```bash
+# تشغيل خادم الويب
+python web_interface.py
+
+# مضيف ومنفذ مخصص
+python web_interface.py --host 0.0.0.0 --port 8080
+
+# ثم افتح http://localhost:5000 في المتصفح
+```
+
+### 4. التكامل مع كود Python
+```python
+from advanced_lookup import AdvancedPhoneLookup
+
+# تهيئة الأداة
+tool = AdvancedPhoneLookup()
+
+# تحليل رقم واحد
+result = tool.comprehensive_analysis("+1234567890")
+print(result)
+
+# التحليل المجمع
+numbers = ["+1234567890", "+0987654321"]
+results = tool.batch_analysis(numbers)
+tool.display_results(results)
+
+# حفظ النتائج
+filepath = tool.save_results(results)
+print(f"تم حفظ النتائج في: {filepath}")
+```
 
 ### أمثلة على أرقام الهواتف - Phone Number Examples
 
@@ -63,11 +147,14 @@ python phone_lookup.py
 ```
 iPhonTracker/
 ├── phone_lookup.py      # الملف الرئيسي
+├── advanced_lookup.py   # أداة التحليل المتقدم مع المعالجة المجمعة
+├── gui_version.py      # نسخة الواجهة الرسومية
+├── web_interface.py    # واجهة الويب
 ├── requirements.txt     # المكتبات المطلوبة
 ├── README.md           # ملف التوثيق
 ├── config.py           # ملف الإعدادات
-├── gui_version.py      # نسخة الواجهة الرسومية
-└── install.bat         # ملف التثبيت التلقائي
+├── install.bat         # ملف التثبيت التلقائي
+└── run.bat             # ملف تشغيل ويندوز
 ```
 
 ## المكتبات المستخدمة - Libraries Used
